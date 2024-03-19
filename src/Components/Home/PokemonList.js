@@ -4,7 +4,7 @@ import "./pokemon.css";
 const PokemonList = (props) => {
     const { name, id, image, abilities, viewDetail, setDetail } = props;
     const [isSelected, setSelected] = useState(false);
-    
+
     useEffect(() => {
         setSelected(id === viewDetail?.id);
     }, [viewDetail]);
@@ -15,7 +15,7 @@ const PokemonList = (props) => {
             isOpened: false
         });
     };
-    
+
     return (
         <div className=''>
             {isSelected ? (
@@ -31,13 +31,16 @@ const PokemonList = (props) => {
 
                         <div className="detail-skill">
                             {abilities?.map((ab, index) => {
+                                // console.log(ab)
                                 return <div key={index} className="">{ab.ability.name}</div>;
                             })}
                         </div>
                     </div>
                 </section>
             ) : (
+                // pokemon-list-container flex flex-col items-center justify-center cursor-pointer bg-f4f1de m-4 p-4 rounded-lg
                 <section className='pokemon-list-container'>
+
                     <p className='pokemon-name'> {name} </p>
                     <img src={image} alt="pokemon"></img>
                 </section>

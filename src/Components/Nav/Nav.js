@@ -1,16 +1,17 @@
+import React from 'react';
 import { BiHomeAlt, BiSearchAlt, BiInfoCircle } from 'react-icons/bi';
 import NavItem from './NavItem';
 
-const defaultIcomSize = '3.875rem';
+const defaultIconSize = '1.875rem';
 const items = [
-    { label: 'Home', icon: <BiHomeAlt size={defaultIcomSize} />, active: true },
-    { label: 'Search', icon: <BiSearchAlt size={defaultIcomSize} /> },
-    { label: 'About', icon: <BiInfoCircle size={defaultIcomSize} /> }
-
+    { label: 'Home', icon: <BiHomeAlt size={defaultIconSize} />, path: '/' },
+    { label: 'Search', icon: <BiSearchAlt size={defaultIconSize} />, path: '/search' },
+    { label: 'About', icon: <BiInfoCircle size={defaultIconSize} />, path: '/about' }
 ];
-const Index = () => {
+
+const Nav = () => {
     return (
-        <nav className="col-span-1 bg-blue-900 text-gray-300">
+        <nav className="col-span-1 bg-blue-900 text-gray-300 min-h-screen flex flex-col">
             <div className="mx-4 justify-between items-center py-4 border-b text-right">
                 <h4>POKEMON.net</h4>
             </div>
@@ -18,11 +19,9 @@ const Index = () => {
                 {items.map((item, index) => (
                     <NavItem key={index} item={item} />
                 ))}
-
             </ul>
         </nav>
-
-    )
+    );
 }
 
-export default Index;
+export default Nav;
